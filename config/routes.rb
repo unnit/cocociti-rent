@@ -273,6 +273,6 @@ Rails.application.routes.draw do
   get "/listings/:id", to: "products#show", as: :user_product
 
   get ":id", to: "home#myprofile", as: :myprofile
-  root 'home#feed'
+  root 'home#index'
 
 end

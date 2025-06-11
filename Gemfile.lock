@@ -98,6 +98,7 @@ GEM
     breadcrumbs_on_rails (4.1.0)
       railties (>= 5.0)
     builder (3.3.0)
+    bxslider-rails (4.2.5.1)
     byebug (12.0.0)
     capistrano (3.4.1)
       i18n
@@ -578,6 +579,7 @@ DEPENDENCIES
   bootstrap3-datetimepicker-rails (~> 4.14.30)
   bower-rails
   breadcrumbs_on_rails
+  bxslider-rails
   byebug
   capistrano (~> 3.4.0)
   capistrano-passenger

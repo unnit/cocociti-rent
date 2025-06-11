@@ -1,5 +1,4 @@
 class HomeController < ApplicationController
-  before_action :redirect_to_home, only: [:index, :bulk_bookings, :offers, :fansday]
   skip_before_action :check_user_status, :check_profile, :check_interests, :check_username_locked, only: [:user_signup_confirmation], raise: false
   skip_before_action :check_interests, only: [:interests, :toggle_follow_interest, :follow_all_interest, :unfollow_all_interest], raise: false
   before_action :back_to_home, only: [:authenticate]

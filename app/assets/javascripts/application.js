@@ -17,7 +17,6 @@
 //= require jquery/dist/jquery
 //= require jquery_ujs
 //= require bootstrap-sass-official/assets/javascripts/bootstrap.min
-//= require bootstrap-slider.min
 //= require bootstrap-select
 //= require jquery.remotipart
 //= require bootstrap-datetimepicker
@@ -36,6 +35,8 @@
 //= require cable
 //= require local_time
 //= require jquery.mobile.custom.min
+//= require bxslider
+
 
 $(document).ready(function(){
   if($.fn.cloudinary_fileupload !== undefined) {

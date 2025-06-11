@@ -1,5 +1,4 @@
 class ProfilesController < ApplicationController
-  before_action :redirect_to_home, only: [:dashboard, :business_profile, :update_business]
   before_action :authenticate_user!
   skip_before_action :check_profile, :check_interests, :check_username_locked, only: [:info, :create, :username_available], raise: false
   before_action :set_profile, only: [:index, :social, :update_social, :update, :business_profile, :update_business, :dashboard]
