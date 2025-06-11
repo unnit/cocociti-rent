@@ -8,19 +8,19 @@
     %link{rel: "icon", type: "image/x-icon", href: "/favicon.ico"}
     - if Rails.env.development? || request.fullpath == GLOBAL_VARIABLES[:hacker_relative_path]
       %meta{:name => "robots", :content => "noindex"}
-    %meta{:content => "#{content_for?(:meta_content) ? yield(:meta_content) : 'Wishboard is a social network based on wishes. Make new friends, discuss, discover, share wishes, get free gifts, & raise funds to fulfill your wishes.'}", :name => "description"}
+    %meta{:content => "#{content_for?(:meta_content) ? yield(:meta_content) : 'Cocociti | An online rental aggregator platform.'}", :name => "description"}
     %meta{:content => "", :name => "author"}
     %meta{name: "msapplication-TileColor", content: "#732db0"}
     %meta{name: "image", content: "#{GLOBAL_VARIABLES[:root_url]}/assets/logo.png"}
-    %meta{itemprop: "name", content: "#{content_for?(:title) ? yield(:title) : "Wishboard | Share, find, fund & fulfill your wishes."}"}
-    %meta{itemprop: "description", content: "#{content_for?(:meta_content) ? yield(:meta_content) : 'Wishboard is a social network based on wishes. Make new friends, discuss, discover, share wishes, get free gifts, & raise funds to fulfill your wishes.'}"}
+    %meta{itemprop: "name", content: "#{content_for?(:title) ? yield(:title) : "Cocociti | An online rental aggregator platform."}"}
+    %meta{itemprop: "description", content: "#{content_for?(:meta_content) ? yield(:meta_content) : 'Cocociti | An online rental aggregator platform.'}"}
     %meta{itemprop: "image", content: "#{GLOBAL_VARIABLES[:root_url]}/assets/logo.png"}
-    %meta{name: "og:title", content: "#{content_for?(:title) ? yield(:title) : "Wishboard | Share, find, fund & fulfill your wishes."}"}
-    %meta{name: "og:description", content: "#{content_for?(:meta_content) ? yield(:meta_content) : 'Wishboard is a social network based on wishes. Make new friends, discuss, discover, share wishes, get free gifts, & raise funds to fulfill your wishes.'}"}
+    %meta{name: "og:title", content: "#{content_for?(:title) ? yield(:title) : "Cocociti | An online rental aggregator platform."}"}
+    %meta{name: "og:description", content: "#{content_for?(:meta_content) ? yield(:meta_content) : 'Cocociti | An online rental aggregator platform.'}"}
     %meta{name: "og:image", content: "#{GLOBAL_VARIABLES[:root_url]}/assets/logo.png"}
     %meta{name: "og:url", content: "#{GLOBAL_VARIABLES[:root_url]}"}
     %meta{name: "og:site_name", content: "Wishboard"}
-    %title= content_for?(:title) ? yield(:title) : "Wishboard | Share, find, fund & fulfill your wishes."
+    %title= content_for?(:title) ? yield(:title) : "Cocociti | An online rental aggregator platform."
     
 
     / HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
