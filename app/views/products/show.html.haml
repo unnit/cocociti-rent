@@ -12,8 +12,16 @@
         - unless @product.images.blank?
           %ul.bxslider
             - @product.images.each do |image|
-              %li{style: "text-align: center"}= cl_image_tag image.filename, alt: "#{@product.title} | #{@product.category_name} on rent in #{@product.location.name.split(/\W+/)[0]} #{@product.location.name.split(/\W+/)[1]}", :transformation => {:width => 740, :height => 460, :crop => :fit}, :overlay => "#{GLOBAL_VARIABLES[:watermark]}",
-              :crop => :fit, :gravity => :south_east, :x => 15, :y => 20
+              %li{style: "text-align: center"}
+                = cl_image_tag image.filename,
+                  alt: "#{@product.title} | #{@product.category_name} on rent in #{@product.location.name.split(/\W+/)[0]} #{@product.location.name.split(/\W+/)[1]}",
+                  style: "display: inline-block;",
+                  transformation: { width: 740, height: 460, crop: :fit },
+                  overlay: GLOBAL_VARIABLES[:watermark],
+                  crop: :fit,
+                  gravity: :south_east,
+                  x: 15,
+                  y: 20
           #bx-pager.text-center
             - @product.images.each_with_index do |image, i|
               = link_to "", "data-slide-index" => i do
