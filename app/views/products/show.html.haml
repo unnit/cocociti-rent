@@ -2,6 +2,32 @@
   - meta_content = "#{truncate @product.description, length: 200}"
 = content_for :title do
   - title = "#{@product.title} #{@product.category_name} for rent in Bangalore #{@product.location.name.split(/\W+/)[0]} #{@product.location.name.split(/\W+/)[1]} | Cocociti"
+%link{rel: "stylesheet", href: "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"}
+%script{src: "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"}
+
+:css
+  .product-swiper {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .product-swiper .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 460px;
+  }
+
+  .product-swiper img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: #000;
+  }
+
 .container
   .row.mar-des-page
     .col-md-8
@@ -10,22 +36,24 @@
           = render_breadcrumbs tag: :li, separator: "&nbsp;&nbsp;<span class='glyphicon glyphicon-menu-right extra-small-font'></span>&nbsp;&nbsp;".html_safe
       .col-md-12.no-mar-pad
         - unless @product.images.blank?
-          %ul.bxslider
-            - @product.images.each do |image|
-              %li{style: "text-align: center"}
-                = cl_image_tag image.filename,
-                  alt: "#{@product.title} | #{@product.category_name} on rent in #{@product.location.name.split(/\W+/)[0]} #{@product.location.name.split(/\W+/)[1]}",
-                  style: "display: inline-block;",
-                  transformation: { width: 740, height: 460, crop: :fit },
-                  overlay: GLOBAL_VARIABLES[:watermark],
-                  crop: :fit,
-                  gravity: :south_east,
-                  x: 15,
-                  y: 20
-          #bx-pager.text-center
-            - @product.images.each_with_index do |image, i|
-              = link_to "", "data-slide-index" => i do
-                = cl_image_tag image.filename, alt: "#{@product.title}-#{@product.category_name}", width: 145, height: 80, crop: :fit
+          .swiper.product-swiper
+            .swiper-wrapper
+              - @product.images.each do |image|
+                .swiper-slide{style: "text-align: center;"}
+                  = cl_image_tag image.filename,
+                    alt: "#{@product.title} | #{@product.category_name} on rent in #{@product.location.name.split(/\W+/)[0]} #{@product.location.name.split(/\W+/)[1]}",
+                    style: "display: inline-block;",
+                    transformation: { width: 740, height: 460, crop: :fit },
+                    overlay: GLOBAL_VARIABLES[:watermark],
+                    crop: :fit,
+                    gravity: :south_east,
+                    x: 15,
+                    y: 20
+
+            .swiper-button-prev
+            .swiper-button-next
+            .swiper-pagination
+
           .col-xs-12.col-md-12.available
             .col-xs-6.col-sm-3.bord-right-prd-show
               %h6.des-own-det Owner
@@ -337,19 +365,21 @@
   :javascript
     $(function(){
       //Slider in product page
-      var slider = $('.bxslider').bxSlider({
-        pagerCustom: '#bx-pager',
-        keyboardEnabled: true
-      });
+      new Swiper(".product-swiper", {
+        loop: true,
 
-      $(document).keydown(function(e){
-        if (e.keyCode == 39){ // Right arrow
-          slider.goToNextSlide();
-          return false;
-        }
-        else if (e.keyCode == 37){// left arrow
-          slider.goToPrevSlide();
-          return false;
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev"
+        },
+
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true
+        },
+
+        keyboard: {
+          enabled: true
         }
       });
       $(".detailed-breakup").click(function(){

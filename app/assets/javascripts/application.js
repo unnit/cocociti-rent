@@ -15,7 +15,6 @@
 // require html-table-search
 //= require jquery/dist/jquery
 //= require jquery_ujs
-// require bxslider/jquery.bxslider.min
 //= require bootstrap-sass-official/assets/javascripts/bootstrap.min
 //= require bootstrap-select
 //= require jquery.remotipart
@@ -35,7 +34,6 @@
 //= require cable
 //= require local_time
 //= require jquery.mobile.custom.min
-//= require bxslider
 
 $(document).ready(function () {
   if ($.fn.cloudinary_fileupload !== undefined) {
